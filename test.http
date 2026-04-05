@@ -1,0 +1,172 @@
+@baseUrl = http://localhost:3000
+@json = application/json
+
+### 🔴 Test route inconnue (doit retourner 404)
+GET {{baseUrl}}/nope
+
+
+### ✅ Créer une catégorie
+POST {{baseUrl}}/categories
+Content-Type: {{json}}
+
+{
+  "libelle": "Boissons"
+}
+
+
+### ❌ Tester doublon catégorie (doit échouer)
+POST {{baseUrl}}/categories
+Content-Type: {{json}}
+
+{
+  "libelle": "Boissons"
+}
+
+
+### ❌ Libelle invalide
+POST {{baseUrl}}/categories
+Content-Type: {{json}}
+
+{
+  "libelle": "A"
+}
+
+
+### ✅ Voir toutes les catégories
+GET {{baseUrl}}/categories
+
+
+### ✅ Recherche catégorie
+GET {{baseUrl}}/categories?search=boi
+
+
+### ✅ Voir catégorie par ID
+GET {{baseUrl}}/categories/1
+
+
+### ❌ Catégorie inexistante
+GET {{baseUrl}}/categories/99
+
+
+### ❌ ID invalide
+GET {{baseUrl}}/categories/abc
+
+
+### ✅ Supprimer catégorie
+DELETE {{baseUrl}}/categories/2
+
+
+### ❌ Supprimer catégorie inexistante
+DELETE {{baseUrl}}/categories/99
+
+
+### ✅ Créer un fournisseur
+POST {{baseUrl}}/fournisseurs
+Content-Type: {{json}}
+
+{
+  "prenom": "Ali",
+  "nom": "Diop",
+  "email": "ali@mail.com",
+  "adresse": "Dakar",
+  "telephone": "771234567"
+}
+
+
+### ❌ Téléphone déjà utilisé
+POST {{baseUrl}}/fournisseurs
+Content-Type: {{json}}
+
+{
+  "prenom": "Moussa",
+  "nom": "Fall",
+  "email": "moussa@mail.com",
+  "adresse": "Thiès",
+  "telephone": "771234567"
+}
+
+
+### ❌ Fournisseur sans téléphone
+POST {{baseUrl}}/fournisseurs
+Content-Type: {{json}}
+
+{
+  "prenom": "Jean",
+  "nom": "Dupont",
+  "email": "jean@mail.com",
+  "adresse": "Paris"
+}
+
+
+### ✅ Créer un produit (OK)
+POST {{baseUrl}}/produits
+Content-Type: {{json}}
+
+{
+  "libelle": "Coca",
+  "prixUnitaire": 500,
+  "qteStock": 10,
+  "dateExpiration": "2026-12-31",
+  "categorieId": 1,
+  "fournisseurId": 1
+}
+
+
+### ❌ Produit avec categorie inexistante
+POST {{baseUrl}}/produits
+Content-Type: {{json}}
+
+{
+  "libelle": "Fanta",
+  "prixUnitaire": 400,
+  "qteStock": 5,
+  "dateExpiration": "2026-12-31",
+  "categorieId": 99,
+  "fournisseurId": 1
+}
+
+
+### ❌ Produit avec fournisseur inexistant
+POST {{baseUrl}}/produits
+Content-Type: {{json}}
+
+{
+  "libelle": "Pepsi",
+  "prixUnitaire": 400,
+  "qteStock": 5,
+  "dateExpiration": "2026-12-31",
+  "categorieId": 1,
+  "fournisseurId": 99
+}
+
+
+### ❌ Produit avec prix invalide
+POST {{baseUrl}}/produits
+Content-Type: {{json}}
+
+{
+  "libelle": "Sprite",
+  "prixUnitaire": -100,
+  "qteStock": 5,
+  "dateExpiration": "2026-12-31",
+  "categorieId": 1,
+  "fournisseurId": 1
+}
+
+
+### ❌ Produit avec stock invalide
+POST {{baseUrl}}/produits
+Content-Type: {{json}}
+
+{
+  "libelle": "Oasis",
+  "prixUnitaire": 300,
+  "qteStock": -5,
+  "dateExpiration": "2026-12-31",
+  "categorieId": 1,
+  "fournisseurId": 1
+}
+
+### vor tous les produits
+
+GET {{baseUrl}}/produits

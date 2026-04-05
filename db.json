@@ -1,0 +1,29 @@
+{
+  "categories": [
+    {
+      "id": 3,
+      "libelle": "Boissons"
+    }
+  ],
+  "fournisseurs": [
+    {
+      "id": 1,
+      "prenom": "Ali",
+      "nom": "Diop",
+      "email": "ali@mail.com",
+      "adresse": "Dakar",
+      "telephone": "771234567"
+    }
+  ],
+  "produits": [
+    {
+      "id": 1,
+      "libelle": "Coca",
+      "prixUnitaire": 500,
+      "qteStock": 10,
+      "dateExpiration": "2026-12-31",
+      "categorieId": 1,
+      "fournisseurId": 1
+    }
+  ]
+}
