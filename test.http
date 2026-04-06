@@ -10,7 +10,7 @@ POST {{baseUrl}}/categories
 Content-Type: {{json}}
 
 {
-  "libelle": "Boissons"
+  "libelle": "Tissu"
 }
 
 
@@ -37,11 +37,11 @@ GET {{baseUrl}}/categories
 
 
 ### ✅ Recherche catégorie
-GET {{baseUrl}}/categories?search=boi
+GET {{baseUrl}}/categories?search=Ti
 
 
 ### ✅ Voir catégorie par ID
-GET {{baseUrl}}/categories/1
+GET {{baseUrl}}/categories/2
 
 
 ### ❌ Catégorie inexistante
@@ -57,7 +57,7 @@ DELETE {{baseUrl}}/categories/2
 
 
 ### ❌ Supprimer catégorie inexistante
-DELETE {{baseUrl}}/categories/99
+DELETE {{baseUrl}}/categories/2
 
 
 ### ✅ Créer un fournisseur
@@ -65,11 +65,11 @@ POST {{baseUrl}}/fournisseurs
 Content-Type: {{json}}
 
 {
-  "prenom": "Ali",
+  "prenom": "Awa",
   "nom": "Diop",
   "email": "ali@mail.com",
   "adresse": "Dakar",
-  "telephone": "771234567"
+  "telephone": "771034567"
 }
 
 
@@ -103,10 +103,10 @@ POST {{baseUrl}}/produits
 Content-Type: {{json}}
 
 {
-  "libelle": "Coca",
+  "libelle": "Banane",
   "prixUnitaire": 500,
   "qteStock": 10,
-  "dateExpiration": "2026-12-31",
+  "dateExpiration": "2026-10-31",
   "categorieId": 1,
   "fournisseurId": 1
 }
@@ -168,5 +168,6 @@ Content-Type: {{json}}
 }
 
 ### vor tous les produits
+
 
 GET {{baseUrl}}/produits

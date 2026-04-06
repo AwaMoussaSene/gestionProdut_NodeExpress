@@ -1,27 +1,39 @@
 {
   "categories": [
     {
-      "id": 3,
+      "id": 1,
+      "libelle": "Tissu"
+    },
+    {
+      "id": 2,
       "libelle": "Boissons"
     }
   ],
   "fournisseurs": [
     {
       "id": 1,
-      "prenom": "Ali",
+      "prenom": "Awa",
       "nom": "Diop",
       "email": "ali@mail.com",
       "adresse": "Dakar",
+      "telephone": "771034567"
+    },
+    {
+      "id": 2,
+      "prenom": "Moussa",
+      "nom": "Fall",
+      "email": "moussa@mail.com",
+      "adresse": "Thiès",
       "telephone": "771234567"
     }
   ],
   "produits": [
     {
       "id": 1,
-      "libelle": "Coca",
+      "libelle": "Banane",
       "prixUnitaire": 500,
       "qteStock": 10,
-      "dateExpiration": "2026-12-31",
+      "dateExpiration": "2026-10-31",
       "categorieId": 1,
       "fournisseurId": 1
     }
