@@ -1,0 +1,66 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "libelle": "Nouveau chaussure"
+    },
+    {
+      "id": 2,
+      "libelle": "Tissu"
+    },
+    {
+      "id": 3,
+      "libelle": "Boisson"
+    }
+  ],
+  "fournisseurs": [
+    {
+      "id": 1,
+      "prenom": "Fatou",
+      "nom": "Fall",
+      "email": "fatfall@mail.com",
+      "adresse": "Dakar",
+      "telephone": "771234567"
+    },
+    {
+      "id": 2,
+      "prenom": "Awa",
+      "nom": "Fall",
+      "email": "fatfall@mail.com",
+      "adresse": "Dakar",
+      "telephone": "771434567"
+    }
+  ],
+  "produits": [
+    {
+      "id": 2,
+      "libelle": "Riz",
+      "prixUnitaire": 5000,
+      "qteStock": 30,
+      "dateExpiration": "2026-12-31",
+      "categorieId": 1,
+      "fournisseurId": 2,
+      "image": null
+    },
+    {
+      "id": 3,
+      "libelle": "Orange",
+      "prixUnitaire": 500,
+      "qteStock": 30,
+      "dateExpiration": "2026-08-31",
+      "categorieId": 1,
+      "fournisseurId": 1,
+      "image": null
+    },
+    {
+      "id": 4,
+      "libelle": "Riz",
+      "prixUnitaire": 150,
+      "qteStock": 10,
+      "dateExpiration": "23/03/2029",
+      "categorieId": 1,
+      "fournisseurId": 1,
+      "image": "https://res.cloudinary.com/dforeshog/image/upload/v1777567602/produits/sfmlglwhgdikc43lcsfd.png"
+    }
+  ]
+}

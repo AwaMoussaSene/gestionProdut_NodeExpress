@@ -4,7 +4,6 @@
 ### 🔴 Test route inconnue (doit retourner 404)
 GET {{baseUrl}}/nope
 
-
 ### ✅ Créer une catégorie
 POST {{baseUrl}}/categories
 Content-Type: {{json}}
@@ -13,13 +12,12 @@ Content-Type: {{json}}
   "libelle": "Tissu"
 }
 
-
 ### ❌ Tester doublon catégorie (doit échouer)
 POST {{baseUrl}}/categories
 Content-Type: {{json}}
 
 {
-  "libelle": "Boissons"
+  "libelle": "Boisson"
 }
 
 
@@ -41,7 +39,7 @@ GET {{baseUrl}}/categories?search=Ti
 
 
 ### ✅ Voir catégorie par ID
-GET {{baseUrl}}/categories/2
+GET {{baseUrl}}/categories/1
 
 
 ### ❌ Catégorie inexistante
@@ -53,12 +51,19 @@ GET {{baseUrl}}/categories/abc
 
 
 ### ✅ Supprimer catégorie
-DELETE {{baseUrl}}/categories/2
+DELETE {{baseUrl}}/categories/3
 
 
 ### ❌ Supprimer catégorie inexistante
 DELETE {{baseUrl}}/categories/2
 
+### mettre a jour categorie
+PUT  {{baseUrl}}/categories/1
+Content-Type: {{json}}
+
+{
+  "libelle": "Nouveau chaussure"
+}
 
 ### ✅ Créer un fournisseur
 POST {{baseUrl}}/fournisseurs
@@ -78,11 +83,11 @@ POST {{baseUrl}}/fournisseurs
 Content-Type: {{json}}
 
 {
-  "prenom": "Moussa",
+  "prenom": "Fatou",
   "nom": "Fall",
-  "email": "moussa@mail.com",
-  "adresse": "Thiès",
-  "telephone": "771234567"
+  "email": "fatfall@mail.com",
+  "adresse": "Dakar",
+  "telephone": "771434567"
 }
 
 
@@ -91,12 +96,35 @@ POST {{baseUrl}}/fournisseurs
 Content-Type: {{json}}
 
 {
-  "prenom": "Jean",
-  "nom": "Dupont",
-  "email": "jean@mail.com",
-  "adresse": "Paris"
+  "prenom": "Moussa",
+  "nom": "Ndiaye",
+  "email": "mss@mail.com",
+  "adresse": "dakar"
 }
 
+### liste des fournisseurs
+GET {{baseUrl}}/fournisseurs
+
+### fournsseur par id
+GET {{baseUrl}}/fournisseurs/1
+
+### mettre a jour un fournisseur
+PUT {{baseUrl}}/fournisseurs/1
+Content-Type: {{json}}
+
+{
+  "prenom": "Awa Moussa",
+  "nom": "Diop",
+  "email": "awa.updated@gmail.com",
+  "adresse": "Pikine",
+  "telephone": "780000000"
+}
+
+### suprimer un fournisseur
+DELETE {{baseUrl}}/fournisseurs/1
+
+### rechercher un fournisseur
+GET {{baseUrl}}/fournisseurs?search=awa
 
 ### ✅ Créer un produit (OK)
 POST {{baseUrl}}/produits
@@ -105,12 +133,27 @@ Content-Type: {{json}}
 {
   "libelle": "Banane",
   "prixUnitaire": 500,
-  "qteStock": 10,
+  "qteStock": 30,
   "dateExpiration": "2026-10-31",
   "categorieId": 1,
   "fournisseurId": 1
 }
 
+### vor tous les produits
+GET {{baseUrl}}/produits
+
+### ✅ Créer un produit (OK)
+POST {{baseUrl}}/produits
+Content-Type: {{json}}
+
+{
+  "libelle": "Orange",
+  "prixUnitaire": 500,
+  "qteStock": 30,
+  "dateExpiration": "2026-08-31",
+  "categorieId": 1,
+  "fournisseurId": 1
+}
 
 ### ❌ Produit avec categorie inexistante
 POST {{baseUrl}}/produits
@@ -139,7 +182,6 @@ Content-Type: {{json}}
   "fournisseurId": 99
 }
 
-
 ### ❌ Produit avec prix invalide
 POST {{baseUrl}}/produits
 Content-Type: {{json}}
@@ -167,7 +209,18 @@ Content-Type: {{json}}
   "fournisseurId": 1
 }
 
-### vor tous les produits
+### mettre a jour un produit
+PUT {{baseUrl}}/produits/1
+Content-Type: {{json}}
 
+{
+  "libelle": "Riz 25kg",
+  "prixUnitaire": 15000,
+  "qteStock": 5,
+  "dateExpiration": "2026-10-01",
+  "categorieId": 1,
+  "fournisseurId": 1
+}
 
-GET {{baseUrl}}/produits
+### suprimer un produit
+DELETE {{baseUrl}}/produits/3

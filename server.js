@@ -1,9 +1,13 @@
 import express from "express";
-import routes from "./routes/index.js";
+import routes from "./src/routes/Index.js";
+import setupSwagger from "./src/config/swagger.js";
+
 
 const app = express();
 
 app.use(express.json());
+
+setupSwagger(app);
 
 app.use(routes);
 
